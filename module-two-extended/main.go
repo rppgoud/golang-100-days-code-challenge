@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
@@ -11,18 +13,17 @@ func main() {
 	fmt.Println(welcome)
 
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Println(reader)
+	fmt.Println("enter the  value")
 
-	// input, _ := reader.ReadString('\n')
-	// fmt.Println("thanks for rating")
-	// fmt.Printf(input)
+	input, _ := reader.ReadString('\n')
+	fmt.Println("thanks for rating", input)
 
-	// numRating, err := strconv.ParseFloat(input, 64)
+	numRating, err := strconv.ParseFloat(strings.TrimSpace(input), 64)
 
-	// if err != nil {
-	// 	fmt.Println("error occred", err)
-	// } else {
-	// 	fmt.Println("rating:", numRating)
-	// }
+	if err != nil {
+		fmt.Println("error occred", err)
+	} else {
+		fmt.Printf("rating: %T", numRating)
+	}
 
 }
